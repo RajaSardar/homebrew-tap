@@ -11,7 +11,7 @@ cask "wowow" do
   end
 
   name "Wowow Browser"
-  desc "Open-source agentic browser with a built-in AI agent that can see and operate the web"
+  desc "Agentic browser with a built-in AI agent that operates the web"
   homepage "https://github.com/RajaSardar/wowow-browser"
 
   livecheck do

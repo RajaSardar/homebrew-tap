@@ -1,7 +1,7 @@
 class Kubebay < Formula
   desc "Local-first Kubernetes IDE — engine + web UI in one binary"
   homepage "https://github.com/RajaSardar/kubebay"
-  version "0.1.0"
+  version "0.1.1"
 
   on_macos do
     if Hardware::CPU.arm?

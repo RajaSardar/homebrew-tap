@@ -4,7 +4,7 @@ Wowow Browser (agentic browser) and Kubebay (local-first Kubernetes IDE).
 
 ```bash
 brew tap rajasardar/tap https://github.com/rajasardar/homebrew-tap
-brew trust rajasardar/tap        # one-time: allow casks from this tap
+brew trust --cask rajasardar/tap/wowow   # one-time: allow this cask
 brew install --cask wowow
 ```
 

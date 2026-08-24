@@ -1,7 +1,7 @@
 cask "wowow" do
-  version "0.3.1"
-  sha256 arm:   "200ed729dc226d525c23c8924d2ec2c77d73d8201cd1162bccbb771ea4688394",
-         intel: "07151069c7e329374ddeae2b55f961937d9ac8ae65a1f0b699816b0803d4d4c6"
+  version "0.3.2"
+  sha256 arm:   "21cce8d7f4a5f2d41914145783afc70d27741f0ff42f053fe046caf735a81cca",
+         intel: "cefb1bafa0055d7546684c7190c58c740fb6bb07edaf34b8ae4f50eff35c8f23"
 
   on_arm do
     url "https://github.com/RajaSardar/wowow-browser/releases/download/v#{version}/Wowow-Browser-#{version}-arm64.dmg"

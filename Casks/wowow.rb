@@ -19,8 +19,6 @@ cask "wowow" do
     strategy :github_latest
   end
 
-  auto_updates false
-  depends_on mac: ">= :catalina"
 
   app "Wowow Browser.app"
 

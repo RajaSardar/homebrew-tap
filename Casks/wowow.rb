@@ -11,7 +11,11 @@ cask "wowow" do
   end
 
   name "Wowow Browser"
+<<<<<<< HEAD
   desc "Open-source agentic browser with a built-in AI agent that can see and operate the web"
+=======
+  desc "Agentic browser with a built-in AI agent that operates the web"
+>>>>>>> 0a74da1c403311c5b6f893e8aa0809c49d95eab9
   homepage "https://github.com/RajaSardar/wowow-browser"
 
   livecheck do
@@ -19,8 +23,13 @@ cask "wowow" do
     strategy :github_latest
   end
 
+<<<<<<< HEAD
   auto_updates false
   depends_on mac: ">= :catalina"
+=======
+
+  depends_on macos: :big_sur
+>>>>>>> 0a74da1c403311c5b6f893e8aa0809c49d95eab9
 
   app "Wowow Browser.app"
 

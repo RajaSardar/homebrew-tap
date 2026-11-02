@@ -1,35 +1,43 @@
 class Kubebay < Formula
-  desc "Kubernetes UI with real-time terminal access and pod management"
+  desc "Local-first Kubernetes IDE — engine + web UI in one binary"
   homepage "https://github.com/RajaSardar/kubebay"
-  url "https://github.com/RajaSardar/kubebay/releases/download/v0.4.0/Kubebay-v0.4.0-aarch64-apple-darwin.zip"
-  sha256 "49a83bc731bcb6945714c66964381f4b880ba1a6c05303352008e6b28cb1b75f"
-  version "0.4.0"
+  version "0.7.0"
   license "Apache-2.0"
 
-  depends_on :macos
+  on_macos do
+    if Hardware::CPU.arm?
+      url "https://github.com/RajaSardar/kubebay/releases/download/v#{version}/kubebay-darwin-arm64.tar.gz"
+      sha256 "887e107d65641ad5e5a8574e853956a5748100d5f5f30c92ef838e8bf5bf2cbe"
+    else
+      url "https://github.com/RajaSardar/kubebay/releases/download/v#{version}/kubebay-darwin-amd64.tar.gz"
+      sha256 "83804bbd0b53bc81cbf2cae7c726ba7a93109693504423e72fea59fcdef0ec37"
+    end
+  end
+
+  on_linux do
+    if Hardware::CPU.arm?
+      url "https://github.com/RajaSardar/kubebay/releases/download/v#{version}/kubebay-linux-arm64.tar.gz"
+      sha256 "b39ba5ad766db0d7e934eed9293068e105510106a17b50fbb4e02523f962ec00"
+    else
+      url "https://github.com/RajaSardar/kubebay/releases/download/v#{version}/kubebay-linux-amd64.tar.gz"
+      sha256 "a88e6ee1adfc9ab0e04ac246e08fe220a853f188b79f300d325d031433b5e71d"
+    end
+  end
 
   def install
-    app = "Kubebay.app"
-    # Check if we need to go into nested structure
-    if (buildpath/app).directory?
-      app_path = buildpath/app
-    elsif (buildpath/"Kubebay.app/Kubebay.app").directory?
-      app_path = buildpath/"Kubebay.app/Kubebay.app"
-    else
-      raise "Kubebay.app not found"
-    end
-    
-    cp_r app_path, prefix/"Kubebay.app"
-    bin.write_exec_script "#{prefix}/Kubebay.app/Contents/MacOS/kubebay"
+    bin.install "kubebay"
+  end
+
+  service do
+    run [opt_bin/"kubebay", "--addr", "127.0.0.1:9898", "--no-open"]
+    keep_alive true
   end
 
   def caveats
     <<~EOS
-      Kubebay has been installed. Launch it with:
-        open #{prefix}/Kubebay.app
-      
-      Or from the command line:
-        kubebay
+      Run directly:  kubebay
+      As a service:  brew services start rajasardar/tap/kubebay
+      The UI is at http://127.0.0.1:9898 and its token is printed on first start.
     EOS
   end
 

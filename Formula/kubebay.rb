@@ -1,26 +1,26 @@
 class Kubebay < Formula
   desc "Local-first Kubernetes IDE — engine + web UI in one binary"
   homepage "https://github.com/RajaSardar/kubebay"
-  version "0.7.0"
+  version "0.7.3"
   license "Apache-2.0"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/RajaSardar/kubebay/releases/download/v#{version}/kubebay-darwin-arm64.tar.gz"
-      sha256 "887e107d65641ad5e5a8574e853956a5748100d5f5f30c92ef838e8bf5bf2cbe"
+      sha256 "0ab8dfcc55f5fffe8487852f3fd7d4b13476f48a715200c14e0f56225744c4c0"
     else
       url "https://github.com/RajaSardar/kubebay/releases/download/v#{version}/kubebay-darwin-amd64.tar.gz"
-      sha256 "83804bbd0b53bc81cbf2cae7c726ba7a93109693504423e72fea59fcdef0ec37"
+      sha256 "e5894c801de455a2b374a341bcd24fc4727aa339c66bbfe94e55fe55bfcdbd08"
     end
   end
 
   on_linux do
     if Hardware::CPU.arm?
       url "https://github.com/RajaSardar/kubebay/releases/download/v#{version}/kubebay-linux-arm64.tar.gz"
-      sha256 "b39ba5ad766db0d7e934eed9293068e105510106a17b50fbb4e02523f962ec00"
+      sha256 "4e5e1be07c7ef74a78918afd445b6dafa1a1105b749995ad467eada727595627"
     else
       url "https://github.com/RajaSardar/kubebay/releases/download/v#{version}/kubebay-linux-amd64.tar.gz"
-      sha256 "a88e6ee1adfc9ab0e04ac246e08fe220a853f188b79f300d325d031433b5e71d"
+      sha256 "be3343d37a7eb31df5add2637ca096af2f25a8f58183f4b1f656682db273f9f3"
     end
   end
 
